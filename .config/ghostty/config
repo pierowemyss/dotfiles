@@ -1,0 +1,10 @@
+# Configuration for Ghostty Terminal Emulator
+
+theme = Oxocarbon
+background = 111111
+background-opacity = 0.85
+background-blur-radius = 10
+# font-family = Inconsolata-g
+font-family = DejaVu Sans Mono
+mouse-hide-while-typing = true
+font-feature = -calt
