@@ -69,6 +69,10 @@ if.app-name-regex-substring = 'Messages'
 run = 'layout floating'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'KeepassXC'
+run = 'layout floating'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'Activity Monitor'
 run = 'layout floating'
 
