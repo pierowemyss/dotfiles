@@ -1,6 +1,6 @@
 return {
-  "stevearc/dressing.nvim",
-  event = "VeryLazy",
-  priority = 1000,
-  -- opts = {},
+	"stevearc/dressing.nvim",
+	-- event = "VeryLazy",
+	-- priority = 10,
+	opts = {},
 }
