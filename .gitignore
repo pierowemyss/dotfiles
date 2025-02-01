@@ -1,0 +1,74 @@
+# Compiled Python files
+*.pyc
+
+# Folder view configuration files
+.DS_Store
+Desktop.ini
+
+# Thumbnail cache files
+._*
+Thumbs.db
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+.CFUserTextEncoding
+.Trash/
+.adobe/
+.anaconda/
+.arduinoIDE/
+.atom/
+.bash_history
+.bash_profile
+.bash_sessions/
+.cache/
+.cargo/
+.condarc
+.continuum/
+.cups/
+.idlerc/
+.ipython/
+.jssc/
+.jupyter/
+.lesshst
+.lldb/
+.local/
+.matplotlib/
+.npm/
+.ollama/
+.oracle_jre_usage/
+.pip/
+.python_history
+.spyder-py3/
+.swiftpm/
+.swt/
+.tcshrc
+.vim/
+.viminfo
+.vscode/
+.xonshrc
+.zcompdump-Mac-5.9
+.zcompdump-Mac-5.9.zwc
+.zcompdump-MacBook Pro-5.9
+.zcompdump-MacBook Pro-5.9.zwc
+".zcompdump-pp's macbook pro \360\237\244\240\360\237\244\240-5.9"
+.zsh_history
+.zsh_sessions/
+Applications/
+Arduino_IO.txt
+Creative Cloud Files/
+Desktop/
+Documents/
+Downloads/
+Library/
+Movies/
+Music/
+Pictures/
+Public/
+Sites/
+fonts/
+iCloud Drive (Archive) - 2/
+image.png
+matlab_crash_dump.92067-1
+nvim
