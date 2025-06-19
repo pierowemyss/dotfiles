@@ -3,6 +3,7 @@
 
 # Folder view configuration files
 .DS_Store
+*/.DS_Store
 Desktop.ini
 
 # Thumbnail cache files
@@ -52,7 +53,7 @@ Thumbs.db
 .zcompdump-Mac-5.9.zwc
 .zcompdump-MacBook Pro-5.9
 .zcompdump-MacBook Pro-5.9.zwc
-".zcompdump-pp's macbook pro \360\237\244\240\360\237\244\240-5.9"
+.zcompdump-*
 .zsh_history
 .zsh_sessions/
 Applications/

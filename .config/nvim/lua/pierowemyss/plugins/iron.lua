@@ -29,18 +29,18 @@ return {
 			-- Iron doesn't set keymaps by default anymore.
 			-- You can set them here or manually add keymaps to the functions in iron.core
 			keymaps = {
-				send_motion = "<leader>rc",
-				visual_send = "<leader>rc",
-				send_file = "<leader>rf",
-				send_line = "<leader>rl",
-				send_mark = "<leader>rm",
-				mark_motion = "<leader>rmc",
-				mark_visual = "<leader>rmc",
-				remove_mark = "<leader>rmd",
-				cr = "<leader>r<cr>",
-				interrupt = "<leader>r<space>",
-				exit = "<leader>rq",
-				clear = "<leader>rx",
+				send_motion = "<leader>ic",
+				visual_send = "<leader>ic",
+				send_file = "<leader>if",
+				send_line = "<leader>il",
+				send_mark = "<leader>im",
+				mark_motion = "<leader>imc",
+				mark_visual = "<leader>imc",
+				remove_mark = "<leader>imd",
+				cr = "<leader>i<cr>",
+				interrupt = "<leader>i<space>",
+				exit = "<leader>iq",
+				clear = "<leader>ix",
 			},
 			-- If the highlight is on, you can change how it looks
 			-- For the available options, check nvim_set_hl
