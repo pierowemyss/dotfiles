@@ -2,8 +2,14 @@
 alias pip=pip3
 alias python=python3
 export OCTAVE_FORCE_SW_RENDERING=1
-export PATH="/Users/School/Library/Python/3.13/bin:$PATH"
+export PATH="/Users/School/Library/Python/3.12/bin:$PATH"
+# export PATH="/Users/School/Library/Python/3.13/bin:$PATH"
+export PATH="/Users/School/Library/Python/3.14/bin:$PATH"
 export DYLD_LIBRARY_PATH="/usr/local/Cellar/gsl/2.8/include/:$DYLD_LIBRARY_PATH"
+
+# Shortcuts
+alias vimconf="cd ~/.config/nvim && nvim ."
+alias docs="cd ~/Documents"
 
 # Fix copy mode in tmux
 export EDITOR=nvim

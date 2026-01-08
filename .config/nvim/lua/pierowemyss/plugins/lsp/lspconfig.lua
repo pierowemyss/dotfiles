@@ -2,7 +2,6 @@ return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
 	dependencies = {
-		"hrsh7th/nvim-cmp",
 		"hrsh7th/cmp-nvim-lsp",
 		{ "antosha417/nvim-lsp-file-operations", config = true },
 		{ "folke/neodev.nvim", opts = {} },
@@ -52,6 +51,8 @@ return {
 				keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts) -- show  diagnostics for file
 
 				opts.desc = "Show line diagnostics"
+				keymap.set("n", "<leader>d", vim.diagnostic.open_float, opts) -- show diagnostics for line
+
 				opts.desc = "Go to previous diagnostic"
 				keymap.set("n", "[d", vim.diagnostic.goto_prev, opts) -- jump to previous diagnostic in buffer
 
@@ -70,58 +71,54 @@ return {
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
 		-- Change the Diagnostic symbols in the sign column (gutter)
+		-- (not in youtube nvim video)
 		local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
 		for type, icon in pairs(signs) do
 			local hl = "DiagnosticSign" .. type
 			vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 		end
 
-		mason_lspconfig.setup_handlers({
-			-- default handler for installed servers
-			function(server_name)
-				-- if server_name ~= "pylsp" then
-				lspconfig[server_name].setup({
-					capabilities = capabilities,
-				})
-				-- end
-			end,
-			["lua_ls"] = function()
-				-- configure lua server (with special settings)
-				lspconfig["lua_ls"].setup({
-					capabilities = capabilities,
-					settings = {
-						Lua = {
-							-- make the language server recognize "vim" global
-							diagnostics = {
-								globals = { "vim" },
-								disable = { "missing-fields" },
+		mason_lspconfig.setup({
+			handlers = { -- mason_lspconfig.setup_handlers doesn't exist but mason_lspconfig.setup({handlers = {}}) exists
+				-- default handler for installed servers
+				function(server_name)
+					lspconfig[server_name].setup({
+						capabilities = capabilities,
+					})
+				end,
+				["svelte"] = function()
+					-- configure svelte server
+					lspconfig["svelte"].setup({
+						capabilities = capabilities,
+						on_attach = function(client, bufnr)
+							vim.api.nvim_create_autocmd("BufWritePost", {
+								pattern = { "*.js", "*.ts" },
+								callback = function(ctx)
+									-- Here use ctx.match instead of ctx.file
+									client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
+								end,
+							})
+						end,
+					})
+				end,
+				["lua_ls"] = function()
+					-- configure lua server (with special settings)
+					lspconfig["lua_ls"].setup({
+						capabilities = capabilities,
+						settings = {
+							Lua = {
+								-- make the language server recognize "vim" global
+								diagnostics = {
+									globals = { "vim" },
+								},
+								completion = {
+									callSnippet = "Replace",
+								},
 							},
-							completion = {
-								callSnippet = "Replace",
-							},
-							telemetry = { enable = false },
 						},
-					},
-				})
-			end,
-			--     ["pylsp"] = function()
-			--       lspconfig["pylsp"].setup({
-			--         cmd = {  "python3 -m /Users/School/Library/Python/3.13/bin/pylsp" },
-			--       })
-			--     end,
+					})
+				end,
+			},
 		})
-		--   lspconfig.pylsp.setup({
-		--     cmd = { "pylsp" },  -- This will use the globally installed pylsp
-		--     settings = {
-		--       pylsp = {
-		--         plugins = {
-		--           pycodestyle = { enabled = false },
-		--           pyflakes = { enabled = true },
-		--           pylint = { enabled = true },  -- Disable pylint if you don't want to use it
-		--           -- Add other plugin configurations as needed
-		--         }
-		--       }
-		--     }
-		--   })
 	end,
 }

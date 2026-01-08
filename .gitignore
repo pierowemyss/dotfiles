@@ -73,3 +73,6 @@ iCloud Drive (Archive) - 2/
 image.png
 matlab_crash_dump.92067-1
 nvim
+.bun/
+.thumbnails/
+.zshrc.pre-oh-my-zsh

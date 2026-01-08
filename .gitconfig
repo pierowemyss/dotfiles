@@ -1,5 +1,6 @@
 [safe]
 	directory = /usr/local/Homebrew
+	directory = /usr/local/Homebrew/Library/Taps/homebrew/homebrew-core
 [user]
 	email = pierowemyss@gmail.com
 	name = pierowemyss
