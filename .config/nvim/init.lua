@@ -1,5 +1,6 @@
 require("pierowemyss.core")
 require("pierowemyss.lazy")
+require("pierowemyss.lsp")
 
 -- vim.cmd([[colorscheme default]])  -- Preserves terminal theme
 
